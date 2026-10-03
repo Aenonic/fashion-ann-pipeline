@@ -167,7 +167,7 @@ def create_report(filename="Fashion_ANN_Pipeline_Report.pdf"):
         ],
         [
             Paragraph("<b>GitHub:</b> <a href='https://github.com/Aenonic/fashion-ann-pipeline'><u>github.com/Aenonic/fashion-ann-pipeline</u></a>", meta_style),
-            Paragraph("<b>DVC Remote:</b> gdrive://gdrive_storage", meta_style),
+            Paragraph("<b>DVC Remote:</b> <a href='https://drive.google.com/drive/u/0/folders/1A4889YAEgPAiFNWejJkhAuGMXrLowjNe'><u>Google Drive Remote Folder</u></a>", meta_style),
             Paragraph("<b>Dataset:</b> Fashion-MNIST (70,000 samples)", meta_style)
         ]
     ]
@@ -446,7 +446,7 @@ stages:
         ["Deliverable Requirement", "Verification Status", "Details & Location"],
         ["GitHub Repository Link", "CONFIRMED", "https://github.com/Aenonic/fashion-ann-pipeline (Unsquashed history)"],
         ["Full Git Commit History", "CONFIRMED", "All parts A1-A8, B, C, D, E commits preserved with tags v1 & v2."],
-        ["DVC Google Drive Remote", "CONFIGURED", "Remote 'gdrive_storage' registered in .dvc/config with OAuth consent."],
+        ["DVC Google Drive Remote", "CONFIGURED", "https://drive.google.com/drive/u/0/folders/1A4889YAEgPAiFNWejJkhAuGMXrLowjNe"],
         ["DVC Pipeline Reproducibility", "VERIFIED", "Single 'dvc repro' call successfully executes end-to-end pipeline."],
         ["Metrics Requirement (>= 85%)", "EXCEEDED", "Test Accuracy: 87.81% (v2), Test Loss: 0.3474 recorded in metrics.json."],
         ["dvc.lock Version Control", "COMMITTED", "dvc.lock committed at root with all stage dependencies and hash locks."]
