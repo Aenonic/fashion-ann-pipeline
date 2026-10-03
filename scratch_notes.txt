@@ -1,0 +1,5 @@
+Scratch notes for Fashion-MNIST exploratory work:
+- 10 classes: T-shirt/top, Trouser, Pullover, Dress, Coat, Sandal, Shirt, Sneaker, Bag, Ankle boot
+- Input size: 28x28 grayscale
+- Target test accuracy: >= 85%
+- Temporary scratch file to be removed in A8
