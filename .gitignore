@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# DVC local storage & caches
+.dvc/cache/
+.dvc/tmp/
+.dvc/config.local
+
+# Large model binaries tracked by DVC
+*.h5
+
+# Credentials and OAuth tokens
+credentials.json
+client_secrets.json
+gdrive-user-credentials.json
+token.json
+*.token
+
+# OS files
+.DS_Store
