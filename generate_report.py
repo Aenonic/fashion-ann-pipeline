@@ -12,6 +12,8 @@ from reportlab.platypus import (
 ROOT = Path('/Users/avcton/Documents/Sw/fashion-ann-pipeline')
 OUT = Path('/Users/avcton/Documents/Codex/2026-10-04/se/outputs/Fashion_ANN_Pipeline_Report_Corrected.pdf')
 OUT.parent.mkdir(parents=True, exist_ok=True)
+GITHUB_URL = 'https://github.com/Aenonic/fashion-ann-pipeline'
+DRIVE_URL = 'https://drive.google.com/drive/u/0/folders/1A4889YAEgPAiFNWejJkhAuGMXrLowjNe'
 
 NAVY = colors.HexColor('#17365D')
 BLUE = colors.HexColor('#2E75B6')
@@ -47,8 +49,11 @@ def T(rows, widths, header=True, font=6.1):
 
 def footer(canvas, doc):
     canvas.saveState(); canvas.setStrokeColor(colors.HexColor('#D4DEE8')); canvas.line(36,29,576,29)
-    canvas.setFillColor(MUTED); canvas.setFont('Helvetica',6.5)
-    canvas.drawString(36,18,'GitHub: github.com/Aenonic/fashion-ann-pipeline')
+    canvas.setFillColor(BLUE); canvas.setFont('Helvetica',6.5)
+    footer_text = 'GitHub: github.com/Aenonic/fashion-ann-pipeline'
+    canvas.drawString(36,18,footer_text)
+    canvas.linkURL(GITHUB_URL, (36,15,36 + canvas.stringWidth(footer_text,'Helvetica',6.5),24), relative=0)
+    canvas.setFillColor(MUTED)
     canvas.drawRightString(576,18,f'Page {doc.page} of 4'); canvas.restoreState()
 
 def run_text(path):
@@ -59,7 +64,7 @@ dvc_yaml = run_text('dvc.yaml')
 
 story = [P('Assignment 2: End-to-End ML Versioning', title), P('Evidence-based final report - Git, DVC, Google Drive and Fashion-MNIST ANN', sub)]
 story += [T([
-    ['Student','Zainab Fatima','Repository','github.com/Aenonic/fashion-ann-pipeline'],
+    ['Student','Zainab Fatima','Repository',P(f'<link href="{GITHUB_URL}" color="#2E75B6"><u>github.com/Aenonic/fashion-ann-pipeline</u></link>', small)],
     ['Dataset','Fashion-MNIST (70,000 images)','Final model','Dense 256, 10 epochs'],
     ['Final result','Accuracy 87.81% / loss 0.3474','Audit date','4 October 2026'],
 ], [0.75*inch,1.75*inch,0.8*inch,3.95*inch], header=False)]
@@ -113,7 +118,7 @@ train        model hash bf4f29dc... (dense_units=256)
 evaluate     metrics hash 94391a7f...; confusion matrix hash 3469b359...
 metrics.json test_accuracy=0.87809998, test_loss=0.34735397""", code), PageBreak()]
 
-story += [P('Part C - DVC Setup and Google Drive Remote', h1), P('DVC is initialized and the default remote is configured as <b>gdrive_storage</b> with folder ID <b>1A4889YAEgPAiFNWejJkhAuGMXrLowjNe</b>. A dedicated Google Cloud desktop OAuth client was authorized without committing credentials to Git. The final <b>dvc push</b> uploaded 14 files, <b>dvc status -c</b> reported the cache and remote in sync, and the supplied Drive folder visibly contains the DVC <b>files</b> directory.', body)]
+story += [P('Part C - DVC Setup and Google Drive Remote', h1), P(f'DVC is initialized and the default remote is configured as <b>gdrive_storage</b>. <link href="{DRIVE_URL}" color="#2E75B6"><u>Open the Google Drive DVC folder</u></link> (folder ID: <b>1A4889YAEgPAiFNWejJkhAuGMXrLowjNe</b>). A dedicated Google Cloud desktop OAuth client was authorized without committing credentials to Git. The final <b>dvc push</b> uploaded 14 files, <b>dvc status -c</b> reported the cache and remote in sync, and the supplied Drive folder visibly contains the DVC <b>files</b> directory.', body)]
 story += [T([
     ['Check','Status','Evidence / required action'],
     ['DVC initialized','Verified','.dvc exists and dvc version identifies the repository.'],
