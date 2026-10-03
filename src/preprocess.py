@@ -24,9 +24,9 @@ def preprocess():
     test_images = np.load(os.path.join(raw_dir, "test_images.npy"))
     test_labels = np.load(os.path.join(raw_dir, "test_labels.npy"))
     
-    # Normalize pixel values to [0, 1]
-    train_images = train_images.astype("float32") / 255.0
-    test_images = test_images.astype("float32") / 255.0
+    # Teammate normalization: Zero-centered [-1, 1] normalization
+    train_images = (train_images.astype("float32") - 128.0) / 128.0
+    test_images = (test_images.astype("float32") - 128.0) / 128.0
     
     # Split train into train and validation sets
     x_train, x_val, y_train, y_val = train_test_split(
