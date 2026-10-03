@@ -1,6 +1,6 @@
-# Fashion-MNIST ANN Pipeline with Git, DVC & Google Drive
+# Fashion-MNIST ANN Pipeline with Git, DVC & Google Drive Storage
 
-An end-to-end Machine Learning versioning workflow using TensorFlow, Git, DVC (Data Version Control), and Google Drive storage.
+An end-to-end Machine Learning versioning workflow utilizing TensorFlow 2, Git, DVC (Data Version Control), and Google Drive remote storage.
 
 ## Project Overview
 This project builds, versions, and reproduces a fully-connected Artificial Neural Network (ANN) classifying 28x28 Fashion-MNIST images into 10 categories, targeting >= 85% test accuracy.
